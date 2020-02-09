@@ -205,6 +205,7 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/fiercelygrey-sanitize.php';
 
 /**
  * Load Jetpack compatibility file.
@@ -213,3 +214,9 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+function wp_enqueue_icon_stylesheet() {
+  wp_register_style( 'fontawesome', 'http:////maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+  wp_enqueue_style( 'fontawesome' );
+}
+
+add_action( 'wp_enqueue_scripts', 'wp_enqueue_icon_stylesheet' );

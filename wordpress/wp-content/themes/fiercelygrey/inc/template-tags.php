@@ -26,11 +26,11 @@ if ( ! function_exists( 'fiercelygrey_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'fiercelygrey' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			esc_html_x( '%s', 'post date', 'fiercelygrey' ),
+			$time_string
 		);
 
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+		echo '<div class="posted-on">' . $posted_on . '</div>'; // WPCS: XSS OK.
 
 	}
 endif;
@@ -144,5 +144,5 @@ if ( ! function_exists( 'fiercelygrey_post_thumbnail' ) ) :
 
 		<?php
 		endif; // End is_singular().
-	}
+  }
 endif;
